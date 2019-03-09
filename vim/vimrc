@@ -5,11 +5,11 @@ filetype plugin indent on
 "colorscheme from select/bundle/colors
 colorscheme molokai
 "colorscheme monokai-phoenix
-
 "tab size"
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set mouse=a
 
 "disable swap file"
 set noswapfile 
@@ -17,7 +17,6 @@ set noswapfile
 "cursor -v-h"
 set cursorline
 "set cursorcolumn!
-
 
 
 "dracula theme
@@ -33,16 +32,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'prettier/vim-prettier', {'do': 'yarn install','for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json','graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
 
-
+set rtp+=~/.vim/bundle/Vundle.vim
 "vundle start
 call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'dracula/vim'
+Plugin 'Valloric/MatchTagAlways'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mattn/emmet-vim'
+Bundle 'zhaocai/GoldenView.Vim'
 ""Bundle 'wellle/tmux-complete.vim'
+Bundle 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'w0rp/ale'
@@ -51,14 +53,14 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 call vundle#end()
 "vundle end
-
-
+"cursor - cursor line color set 
+hi Cursor ctermbg=15 ctermfg=8
 
 "nerdtree shortcut
 map <C-f> :NERDTreeToggle<CR>      
+imap <C-f> <esc>:NERDTreeToggle<CR>      
 let g:NERDTreeWinSize=22
 "nerdtree shortcut end
-
 """ nerdtree-plugin
 
 let g:NERDTreeIndicatorMapCustom = {
@@ -77,9 +79,6 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " nerdtree-plugin end
 
-
-
-
 "bottom bar -lighthline-start
 set laststatus=2
 
@@ -96,7 +95,6 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 ""let g:user_emmet_install_global =  0
 ""autocmd FileType html,css,php,js,jsx EmmetInstall
 "shortcut"
-let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_setting = {'javascript.jsx':{'extends':'jsx'}}
 
 "emmet end"
@@ -117,8 +115,8 @@ let g:ale_completion_enabled = 1
 
 " Fix files with prettier, and then ESLint.
 " Equivalent to the above.
-""let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
-let b:ale_fixers = ['prettier']
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+"let b:ale_fixers = ['prettier']
 "errors"
 let g:ale_sign_warning = '>>'
 
@@ -134,6 +132,13 @@ let g:airline#extensions#ale#enabled = 1
 
 " ale end"
 
+"vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+
+
+"end@
 "js lib syntax start"
 
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery=1
@@ -158,10 +163,79 @@ autocmd BufReadPre *.js let b:javascript_lib_use_tape=0
 "js lib snytax end"
 
 "jsx highlight start"
-let g:jsx_ext_required = 1
+let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
 
 "jsx highlight end"
 
+"tag
+let g:mta_matchparent_group = 1
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript':1,
+    \ 'jsx':1,
+    \}
+
+
+"end@
+
+"test script
+"insert mode end-start line keybinding
+imap <C-e> <esc>$i<right>
+imap <C-s> <esc>0i<left>
+
+"normal mode end-star keybinding
+map <C-e> $
+map <C-s> 0
+
+"insert mode +5/-5 line keybindingy
+imap <C-j> <esc> :+5 <CR> i
+imap <C-k> <esc> :-5 <CR> i
+
+"normal  mode +5/-5 line keybindingy
+map <C-j> :+5 <CR>
+map <C-k> :-5 <CR>
+
+"dublicate line 
+
+imap <C-d> <Esc> yypi
+map <C-d> yyp
+
+"arrow move
+
+"arrow insert mode +5/-5 line keybindingy
+imap <C-down> <esc> :+5 <CR> i
+imap <C-up> <esc> :-5 <CR> i
+
+"arrow normal  mode +5/-5 line keybindingy
+map <C-down> :+5 <CR>
+map <C-up> :-5 <CR>
+
+"
+
+nnoremap <C-S-down> :m .+1<CR>==
+nnoremap <C-S-up>    :m .-2<CR>==
+
+inoremap <C-S-down>  <Esc>:m .+1<CR>==gi
+inoremap <C-S-up>    <Esc>:m .-2<CR>==gi
+
+
+"tab next-previous
+imap <C-S-left> <esc> :tabprevious <CR>
+imap <C-S-right> <esc> :tabNext <CR>
+
+map <C-S-left> :tabprevious <CR>
+map <C-S-right> :tabNext <CR>
+
+
+"emmet ctrl-a
+
+imap <C-a> <C-y>,
+
+inoremap <Nul> <C-x><C-o>
+imap <C-space> <C-n>
 
 
