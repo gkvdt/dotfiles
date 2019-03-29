@@ -239,3 +239,11 @@ inoremap <Nul> <C-x><C-o>
 imap <C-space> <C-n>
 
 
+
+"cursorline
+set cursorline
+autocmd InsertEnter * highlight CursorLine guibg=#040050 guifg=fg
+autocmd InsertLeave * highlight CursorLine guibg=#044440 guifg=fg
+
+
+

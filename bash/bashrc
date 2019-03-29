@@ -197,6 +197,12 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
-
+alias pro='cd ~/Project'
 #alias ls='ls -l -g --color=auto'
 alias ls='ls -g --color=auto'
+#disable ctrl-s
+stty -ixon
+alias www='cd /opt/lampp/htdocs/www'
+
+
+export PATH=$HOME/cmus/bin:$PATH
