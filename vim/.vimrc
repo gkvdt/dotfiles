@@ -1,6 +1,7 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 "colorscheme from select/bundle/colors
 colorscheme molokai
@@ -29,18 +30,21 @@ call plug#begin()
 Plug 'StanAngeloff/php.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim' 	
-Plug 'prettier/vim-prettier', {'do': 'yarn install','for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json','graphql', 'markdown', 'vue', 'yaml', 'html'] }
+"Plug 'prettier/vim-prettier', {'do': 'yarn install','for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json','graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
 
 set rtp+=~/.vim/bundle/Vundle.vim
 "vundle start
 call vundle#begin()
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'dracula/vim'
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'vim-syntastic/syntastic'
+"Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mattn/emmet-vim'
 Bundle 'zhaocai/GoldenView.Vim'
 ""Bundle 'wellle/tmux-complete.vim'
@@ -57,11 +61,13 @@ call vundle#end()
 hi Cursor ctermbg=15 ctermfg=8
 
 "nerdtree shortcut
-map <C-f> :NERDTreeToggle<CR>      
-imap <C-f> <esc>:NERDTreeToggle<CR>      
+map <C-g> :NERDTreeToggle<CR>      
+imap <C-g> <esc>:NERDTreeToggle<CR>      
+
 let g:NERDTreeWinSize=22
 "nerdtree shortcut end
 """ nerdtree-plugin
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -78,11 +84,20 @@ let g:NERDTreeIndicatorMapCustom = {
 
 
 " nerdtree-plugin end
+"FZF start
+map <C-f> :FZF<CR>      
+imap <C-f> <esc>:FZF<CR>      
+
+"FZF end
 
 "bottom bar -lighthline-start
 set laststatus=2
 
 "bottom bar -lighthline-end
+
+"commenter
+nmap // <leader>c<space>
+vmap // <leader>c<space>
 
 "emmet start"
 "enable in different mode"
@@ -181,6 +196,21 @@ let g:mta_filetypes = {
 
 
 "end@
+"syntastic start
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_aggregate_errors = 1
+
+"syntastic end
 
 "test script
 "insert mode end-start line keybinding
@@ -244,6 +274,4 @@ imap <C-space> <C-n>
 set cursorline
 autocmd InsertEnter * highlight CursorLine guibg=#040050 guifg=fg
 autocmd InsertLeave * highlight CursorLine guibg=#044440 guifg=fg
-
-
 
