@@ -1,4 +1,0 @@
-lsblk => list disks
-sudo umount /dev/sdx
-sudo mkfs.vfat -n "name" -I /dev/sdx
-sudo dd if=diskname.iso of=/dev/sdx bs=1M
