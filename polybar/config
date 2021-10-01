@@ -41,7 +41,7 @@ alert = #bd2c40
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
-font-0 ="monaco:size=12;1"
+font-0 ="monaco:size=10;1"
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -62,17 +62,17 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-tray-position = center
+tray-position = right
 tray-padding = 2
 #font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = FontAwesome:style=Regular:pixelsize=12
+font-3 = FontAwesome:style=Regular:pixelsize=10
 modules-left =  i3
 modules-center = mpd
-modules-right = xkeyboard filesystem xbacklight  pulseaudio  memory cpu wlan eth battery temperature date powermenu
+modules-right = kdeconnect github xkeyboard filesystem backlight-acpi  pulseaudio  memory cpu wlan temperature date battery powermenu 
 
 ;tray-background = #0063ff
 
@@ -89,6 +89,8 @@ modules-right = xkeyboard filesystem xbacklight  pulseaudio  memory cpu wlan eth
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+
 
 [module/xwindow]
 type = internal/xwindow
@@ -238,7 +240,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp59s0
+interface = wlp0s20f3
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -278,13 +280,13 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date =" %d-%m "
+date-alt = " %d-%m-%Y"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -347,40 +349,22 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
-adapter = AC
+battery = BAT1
+adapter = ACAD
 full-at = 98
+time-format = %H:%M
 
-format-charging = <animation-charging> <label-charging>
+label-discharging = %time% | %percentage%%
+
+format-charging = <label-charging>
 format-charging-underline = #ffb52a
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+format-discharging =  <label-discharging>
+format-discharging-underline = #fcdcfd 
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
+thermal-zone = 7
 warn-temperature = 60
 
 format = <ramp> <label>
@@ -428,6 +412,20 @@ menu-3-0 = Shutdown 30
 menu-3-0-exec = shutdown 30
 menu-3-1 = Shutdown 60
 menu-3-1-exec = shutdown 60
+
+[module/github]
+type = internal/github
+
+; Accessing an access token stored in file
+token = ${file:$HOME/access.token}
+
+label =  %notifications% 
+
+user = gkvdt
+
+empty-notifications = true
+
+interval = 60
 
 
 [settings]
