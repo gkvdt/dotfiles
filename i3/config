@@ -178,5 +178,9 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id feh --no-fehbg --bg-scale "/home/vdtgk/Pictures/bg.jpg"
 
 exec_always --no-startup-id $HOME/.config/polybar/start.sh
-exec_always --no-startup-id kdeconnect-indicator
+#exec_always --no-startup-id kdeconnect-indicator
 
+
+#Brightness Control Keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
+bindsym XF86MonBrightnessDown exec  xbacklight -dec 5% 
