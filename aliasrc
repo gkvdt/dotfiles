@@ -1,4 +1,3 @@
-alias projects="cd /mnt/nvme0n1p4/projects/"
 alias tinker="rlwrap php artisan tinker"
 alias yd="youtube-dl --extract-audio --audio-format mp3 -o '%(title)s.%(ext)s' --download-archive downloaded.txt --no-post-overwrites -ciwx"
 alias yd-cache="youtube-dl --rm-cache-dir"

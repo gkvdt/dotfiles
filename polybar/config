@@ -71,8 +71,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = FontAwesome:style=Regular:pixelsize=10
 modules-left =  i3
-modules-center = mpd
-modules-right = kdeconnect github xkeyboard filesystem backlight-acpi  pulseaudio  memory cpu wlan temperature date battery powermenu 
+modules-center =xwindow
+modules-right =   xkeyboard  pulseaudio  memory cpu temperature date battery 
 
 ;tray-background = #0063ff
 
@@ -94,7 +94,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:49:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
