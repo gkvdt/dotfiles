@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/vdtgk/Documents/otobil-mobile'
+let g:netrw_dirhist_1='/home/vdtgk/Documents/otobil-git'
+let g:netrw_dirhist_0='/home/vdtgk/Documents/otobil-git/config'
+let g:netrw_dirhist_9='/home/vdtgk/Documents/otobil-git'
+let g:netrw_dirhist_8='/home/vdtgk/Documents/otobil-git/app'
+let g:netrw_dirhist_7='/home/vdtgk/Documents/otobil-git'
+let g:netrw_dirhist_6='/home/vdtgk/Documents/1-crypto-arbitrage-express/services'
+let g:netrw_dirhist_5='/home/vdtgk/Documents/1-crypto-arbitrage-express'
+let g:netrw_dirhist_4='/home/vdtgk/Documents/1-crypto-arbitrage-express/routes'
+let g:netrw_dirhist_3='/home/vdtgk/Documents/1-crypto-arbitrage-express'
