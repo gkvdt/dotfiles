@@ -236,7 +236,7 @@ new_window pixel 1
 # Set inner/outer gaps
 gaps inner 6
 gaps outer 3
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 #bindsym $mod+l exec ~/.config/i3.old/scripts/blur-lock
 

@@ -5,8 +5,8 @@ filetype indent on
 set nu
 set relativenumber
 set cursorline
-
-" always switch to current directory
+set noswapfile
+"" always switch to current directory
 set autochdir
 
 " Better search
@@ -17,13 +17,12 @@ set smartcase
 
 set nocompatible
 
-" Indenting
 set autoindent
 set smartindent
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 "Visual
 set number
@@ -50,6 +49,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'townk/vim-autoclose'
+Plugin 'preservim/nerdcommenter'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -93,9 +94,27 @@ nnoremap <expr> <C-U> '5kzz'
 inoremap <expr> <C-D> '<ESC>5jzza'
 inoremap <expr> <C-U> '<ESC>5kzza'
 
+vnoremap <expr> <C-D> '5jzz'
+vnoremap <expr> <C-U> '5kzz'
 " normal mode
 nnoremap <expr> <leader>j winheight(0).'<C-D>zz'
 nnoremap <expr> <leader>k winheight(0).'<C-U>zz'
+
+nnoremap <expr> <leader>c '<leader>c<space>'
+vnoremap <expr> <leader>c '<leader>c<space>'
+
+inoremap <expr> <C-E> '<ESC>$a'
+nnoremap <expr> <C-E> '$'
+vnoremap <expr> <C-E> '$'
+
+inoremap <expr> <C-B> '<ESC>0i'
+nnoremap <expr> <C-B> '0'
+vnoremap <expr> <C-B> '0'
+
+nnoremap <expr> <C-L> '<C-W><C-W>'
+nnoremap <expr> <C-H> '<C-W>h'
+
+noremap <C-Z> zz
 
 
 let g:gitgutter_sign_added = '✚'
@@ -104,3 +123,8 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
 let g:gitgutter_sign_modified_removed = '-'
 let g:rainbow_active = 1
+
+
+
+"CocCommand  prettier.formatFile
+
