@@ -39,7 +39,7 @@ set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 set shellslash
 set grepprg=grep\ -nH\ $*
 
-set bg=dark
+"set bg=dark
 set mouse=a
 
 
@@ -85,7 +85,7 @@ vnoremap <expr> <C-j> '5jzz'
 vnoremap <expr> <C-k> '5kzz'
 
 " normal mode
-nnoremap <expr> <C-j> '5jzz'
+nnoremap <expr> <C-j> 'jjjjjzz'
 nnoremap <expr> <C-k> '5kzz'
 
 nnoremap <expr> <C-D> '5jzz'
@@ -127,4 +127,4 @@ let g:rainbow_active = 1
 
 
 "CocCommand  prettier.formatFile
-
+let g:coc_global_extensions = ['@yaegassy/coc-intelephense','coc-json', 'coc-git','coc-blade','coc-css','coc-emmet','coc-eslint','coc-html','coc-html-css-support','coc-prettier','coc-tsserver','coc-vetur','coc-xml','coc-explorer','coc-floaterm']
