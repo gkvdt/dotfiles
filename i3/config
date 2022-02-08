@@ -291,7 +291,7 @@ new_window pixel 1
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 6
+gaps inner 0
 gaps outer 3
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
@@ -308,7 +308,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 bindsym Print exec "scrot ~/Pictures/ss/%Y-%m-%d-%T-screenshot.png"
 exec --no-startup-id picom -CGb
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id ~/.screenlayout/default.sh
+#exec --no-startup-id ~/.screenlayout/default.sh
 exec --no-startup-id blueberry-tray
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 for_window [class="Yad" instance="yad"] floating enable
