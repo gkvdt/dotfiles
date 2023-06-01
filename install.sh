@@ -6,6 +6,7 @@ RAND=$(date +%s)
 [ -d "/home/vdtgk/.vim" ] && mv /home/vdtgk/.vim /home/vdtgk/.vim.old$RAND
 [ -f "/home/vdtgk/.vimrc" ] && mv /home/vdtgk/.vimrc /home/vdtgk/.vimrc.old$RAND
 [ -d "/home/vdtgk/.config/kitty" ] && mv /home/vdtgk/.config/kitty /home/vdtgk/.config/kitty.old$RAND
+[ -d "/home/vdtgk/.config/nvim" ] && mv /home/vdtgk/.config/nvim /home/vdtgk/.config/nvim.old$RAND
 
 sleep 1
 ln -s /home/vdtgk/config/.fonts /home/vdtgk/
@@ -14,3 +15,4 @@ ln -s /home/vdtgk/config/polybar /home/vdtgk/.config/
 ln -s /home/vdtgk/config/.vimrc /home/vdtgk/
 ln -s /home/vdtgk/config/.vim /home/vdtgk/
 ln -s /home/vdtgk/config/kitty /home/vdtgk/.config/
+ln -s /home/vdtgk/config/nvim /home/vdtgk/.config/

@@ -1,4 +1,4 @@
-syntax on
+set syntax on
 filetype on
 filetype plugin on
 filetype indent on
@@ -43,7 +43,7 @@ set grepprg=grep\ -nH\ $*
 set mouse=a
 
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/config/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
