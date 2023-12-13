@@ -1,0 +1,5 @@
+#!/bin/bash
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+Terminal=false
+/usr/lib/nvidia-prime-applet/nvidia-prime
+sh -c '/usr/bin/nvidia-settings --load-config-only'

@@ -30,3 +30,4 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+icons.filetype.enabled = false
