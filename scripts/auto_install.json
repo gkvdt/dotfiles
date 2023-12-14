@@ -1,0 +1,43 @@
+[
+     
+    {
+        "type":"command",
+        "name":"sudo add-apt-repository ppa:ondrej/php"
+    },
+    {
+        "type":"command",
+        "name":"sudo apt update"
+    },
+    {
+        "type":"app",
+        "name":"wget"
+    },
+    {
+        "type":"app",
+        "name":"git"
+    },
+    {
+        "type":"app",
+        "name":"zsh"
+    },
+    {
+        "type":"app",
+        "name":"vim"
+    },
+    {
+        "type":"app",
+        "name":"python3-neovim"
+    },
+    {
+        "type":"command",
+        "name":"sudo wget https://getcomposer.org/download/latest-stable/composer.phar -O /usr/bin/composer"
+    },
+    {
+        "type":"command",
+        "name":"sudo chmod +x /usr/bin/composer"
+    },
+    {
+        "type":"app",
+        "name":"neovim"
+    }
+]

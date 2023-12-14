@@ -1,18 +1,27 @@
-RAND=$(date +%s)
 #! /usr/bin/bash
-[ -d "/home/vdtgk/.fonts" ] && mv /home/vdtgk/.fonts /home/vdtgk/.fonts.old$RAND
-[ -d "/home/vdtgk/.config/i3" ] && mv /home/vdtgk/.config/i3 /home/vdtgk/.config/i3.old$RAND
-[ -d "/home/vdtgk/.config/polybar" ] && mv /home/vdtgk/.config/polybar /home/vdtgk/.config/polybar.old$RAND
-[ -d "/home/vdtgk/.vim" ] && mv /home/vdtgk/.vim /home/vdtgk/.vim.old$RAND
-[ -f "/home/vdtgk/.vimrc" ] && mv /home/vdtgk/.vimrc /home/vdtgk/.vimrc.old$RAND
-[ -d "/home/vdtgk/.config/kitty" ] && mv /home/vdtgk/.config/kitty /home/vdtgk/.config/kitty.old$RAND
-[ -d "/home/vdtgk/.config/nvim" ] && mv /home/vdtgk/.config/nvim /home/vdtgk/.config/nvim.old$RAND
+RAND=$(date +%s)
+
+[ -d "~/.fonts" ] && mv ~/.fonts ~/.fonts.old$RAND
+[ -d "~/.config/i3" ] && mv ~/.config/i3 ~/.config/i3.old$RAND
+[ -d "~/.config/polybar" ] && mv ~/.config/polybar ~/.config/polybar.old$RAND
+# [ -d "~/.vim" ] && mv ~/.vim ~/.vim.old$RAND
+[ -f "~/.vimrc" ] && mv ~/.vimrc ~/.vimrc.old$RAND
+[ -d "~/.config/kitty" ] && mv ~/.config/kitty ~/.config/kitty.old$RAND
+[ -d "~/.config/nvim" ] && mv ~/.config/nvim ~/.config/nvim.old$RAND
 
 sleep 1
-ln -s /home/vdtgk/config/.fonts /home/vdtgk/
-ln -s /home/vdtgk/config/i3 /home/vdtgk/.config/
-ln -s /home/vdtgk/config/polybar /home/vdtgk/.config/
-ln -s /home/vdtgk/config/.vimrc /home/vdtgk/
-ln -s /home/vdtgk/config/.vim /home/vdtgk/
-ln -s /home/vdtgk/config/kitty /home/vdtgk/.config/
-ln -s /home/vdtgk/config/nvim /home/vdtgk/.config/
+ln -s ~/dotfiles/.fonts ~/
+ln -s ~/dotfiles/i3 ~/.config/
+ln -s ~/dotfiles/polybar ~/.config/
+ln -s ~/dotfiles/.vimrc ~/
+# ln -s ~/dotfiles/.vim ~/
+ln -s ~/dotfiles/kitty ~/.config/
+ln -s ~/dotfiles/nvim ~/.config/
+
+sleep 1 
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ 
+sleep 1 
+echo "source ~/dotfiles/shellrc" >> .zshrc
+echo "source ~/dotfiles/shellrc" >> .bashrc
