@@ -2,4 +2,353 @@ set $mod Mod4
 set $mod2 Mod1
 font pango:Monaco 10
 
-include ~/dotfiles/i3/config.d/*.conf
+# colors.conf
+#Brightness Control Keys
+
+
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+# window colors
+#                       border              background         text                 indicator
+#client.focused          $bg-color           $bg-color          $text-color          #00ff00
+#client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+#client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+#client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
+
+
+# workspaces.conf
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $sws1 "11"
+set $sws2 "12"
+set $sws3 "13"
+set $sws4 "14"
+set $sws5 "15"
+set $sws6 "16"
+set $sws7 "17"
+set $sws8 "18"
+set $sws9 "19"
+set $sws10 "110"
+
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym $mod2+1 workspace number $sws1
+bindsym $mod2+2 workspace number $sws2
+bindsym $mod2+3 workspace number $sws3
+bindsym $mod2+4 workspace number $sws4
+bindsym $mod2+5 workspace number $sws5
+bindsym $mod2+6 workspace number $sws6
+bindsym $mod2+7 workspace number $sws7
+bindsym $mod2+8 workspace number $sws8
+bindsym $mod2+9 workspace number $sws9
+bindsym $mod2+0 workspace number $sws10
+
+
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod2+Shift+1 move container to workspace number $sws1
+bindsym $mod2+Shift+2 move container to workspace number $sws2
+bindsym $mod2+Shift+3 move container to workspace number $sws3
+bindsym $mod2+Shift+4 move container to workspace number $sws4
+bindsym $mod2+Shift+5 move container to workspace number $sws5
+bindsym $mod2+Shift+6 move container to workspace number $sws6
+bindsym $mod2+Shift+7 move container to workspace number $sws7
+bindsym $mod2+Shift+8 move container to workspace number $sws8
+bindsym $mod2+Shift+9 move container to workspace number $sws9
+bindsym $mod2+Shift+0 move container to workspace number $sws10
+
+#set $hdmi1 HDMI-1
+set $hdmi1 HDMI-1-0
+#set $edp1 eDP-1
+set $edp1 eDP-1
+
+workspace $ws1 output $hdmi1
+workspace $ws2 output $hdmi1
+workspace $ws3 output $hdmi1
+workspace $ws4 output $hdmi1
+workspace $ws5 output $hdmi1
+workspace $ws6 output $hdmi1
+workspace $ws7 output $hdmi1
+workspace $ws8 output $hdmi1
+workspace $ws9 output $hdmi1
+workspace $ws10 output $hdmi1
+workspace $sws1 output $edp1
+workspace $sws2 output $edp1
+workspace $sws3 output $edp1
+workspace $sws4 output $edp1
+workspace $sws5 output $edp1
+workspace $sws6 output $edp1
+workspace $sws7 output $edp1
+workspace $sws8 output $edp1
+workspace $sws9 output $edp1
+workspace $sws10 output $edp1
+
+#border indicator on windows:
+new_window pixel 1
+
+
+
+for_window [class="^.*"] border pixel 4
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+assign [class="thunderbird"] $sws3
+
+
+for_window [class="Code"] move to workspace $ws2
+for_window [class="Spotify"] move to workspace $sws1
+for_window [class="Joplin"] move to workspace $sws2
+for_window [class="Google-chrome"] move to workspace $ws1
+for_window [class="kitty"] move to workspace $ws3
+for_window [class="Brave-browser"] move to workspace $ws1
+
+
+# keybinding.conf
+bindsym $mod+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod+F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3statu
+bindsym $mod+F6 exec xbacklight -inc 5%
+bindsym $mod+F5 exec  xbacklight -dec 5%
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+#toggle pause MOC player
+bindsym $mod+F4 exec --no-startup-id mocp -G
+#mocp previous song
+bindsym $mod+F7 exec --no-startup-id mocp -r
+#mocp next song
+bindsym $mod+F8 exec --no-startup-id mocp -f
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+bindsym $mod2+F1 exec --no-startup-id ~/dotfiles/.screenlayout/dual.sh
+bindsym $mod2+F2 exec --no-startup-id ~/dotfiles/.screenlayout/epd-1.sh
+bindsym $mod2+F3 exec --no-startup-id ~/dotfiles/.screenlayout/hdmi.sh
+
+
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+#bindsym $mod2+h split h
+
+# split in vertical orientation
+bindsym $mod2+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+
+# reload the dotfilesuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
+bindsym XF86MonBrightnessDown exec  xbacklight -dec 5%
+
+bindsym $mod+r mode "resize"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window's width.
+        # Pressing right will grow the window's width.
+        # Pressing up will shrink the window's height.
+        # Pressing down will grow the window's height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+e exec ~/dotfiles/i3/scripts/powermenu
+bindsym $mod2+l exec ~/dotfiles/i3/scripts/blur-lock
+bindsym $mod+n exec nautilus
+
+
+#bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+#bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+#bindsym XF86AudioMute exec pamixer -t && notify-send "mute: $(pamixer --get-mute)"
+bindsym XF86AudioPlay exec ~/dotfiles/i3/scripts/mediakeys.sh toggle
+bindsym XF86AudioPause exec ~/dotfiles/i3/scripts/mediakeys.sh pause
+bindsym XF86AudioStop exec ~/dotfiles/i3/scripts/mediakeys.sh pause
+bindsym XF86AudioNext exec ~/dotfiles/i3/scripts/mediakeys.sh next
+bindsym XF86AudioPrev exec ~/dotfiles/i3/scripts/mediakeys.sh previous
+bindsym $mod+p exec /usr/local/bin/switch-audio-port
+#bindsym Print exec "scrot ~/Pictures/ss/%Y-%m-%d-%T-screenshot.png"
+# bindsym $mod2+h exec xdotool key Left
+# bindsym $mod2+j exec xdotool key Down
+# bindsym $mod2+k exec xdotool key Up
+# bindsym $mod2+l exec xdotool key Right
+#
+
+bindsym $mod2+h exec ~/dotfiles/i3/scripts/arrowkeys.sh Left
+bindsym $mod2+j exec ~/dotfiles/i3/scripts/arrowkeys.sh Down
+set $arrow Arrow Mode Active
+mode "$arrow" {
+        # vim keybindings (hjkl = left, down, up, right)
+        bindsym h exec xdotool key Left
+        bindsym j exec xdotool key Down
+        bindsym k exec xdotool key Up
+        bindsym l exec xdotool key Right
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod2+a mode "$arrow"
+
+bindsym Print exec maim -s -u --noopengl | xclip -selection clipboard -t image/png -i
+bindsym $mod+space exec rofi -modi drun -show drun -dotfiles ~/dotfiles/rofi/rofidmenu.rasi
+bindsym $mod+d exec ~/.dotfiles/rofi/launchers/type-3/launcher.sh
+#bindsym $mod+space rofi -modi drun -show drun -dotfiles ~/dotfiles/rofi/rofidmenu.rasi
+
+# startup.conf
+#set $refresh_i3status killall -SIGUSR1 i3status
+
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+exec --no-startup-id sh ~/dotfiles/i3/xampp.sh
+exec --no-startup-id sh ~/dotfiles/i3/scripts/gpu
+#exec --no-startup-id sh ~/dotfiles/i3/mocp.sh
+
+
+
+exec_always --no-startup-id feh --no-fehbg --bg-scale ~/dotfiles/wp.png
+
+exec_always --no-startup-id $HOME/dotfiles/polybar/start.sh
+#exec_always --no-startup-id kdeconnect-indicator
+exec_always --no-startup-id discord
+#exec_always --no-startup-id telegram-desktop
+
+
+
+exec --no-startup-id picom -CGb --dotfiles ~/dotfiles/picom/picom.conf
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id blueberry-tray
+exec --no-startup-id udisksctl mount -b /dev/nvme0n1p3
+#notification deamon
+#exec --no-startup-id dbus-launch dunst --dotfiles ~/dotfiles/dunst/dunstrc
+exec --no-startup-id sh ~/dotfiles/.screenlayout/hdmi.sh
+exec --no-startup-id thunderbird
+#exec --no-startup-id spotify
+#exec --no-startup-id brave-browser
+exec --no-startup-id ~/.joplin/Joplin.AppImage
+
+
+
+
+#set keyboard repeat rate
+exec_always --no-startup-id xset r rate 220 40
+
+#set redshift for eye
+exec_always --no-startup-id redshift -x  -l 36.161526:36.160288 && redshift -O 4000 -l 36.161526:36.160288
+
+# bar.conf
+#bar {
+ # position top                  # Position should be 'bottom' or 'top'.
+ # status_command i3blocks -c ~/dotfiles/i3/i3blocks/dotfiles       # Invoke i3blocks.
+
+#}
