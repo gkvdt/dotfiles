@@ -1,3 +1,3 @@
 require('vdtgk.map')
-require('vdtgk.packer')
-require('vdtgk.set')
+--require('vdtgk.packer')
+--require('vdtgk.set')

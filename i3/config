@@ -2,4 +2,4 @@ set $mod Mod4
 set $mod2 Mod1
 font pango:Monaco 10
 
-include ~/config/i3/config.d/*.conf
+include ~/dotfiles/i3/config.d/*.conf

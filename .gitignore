@@ -21,3 +21,4 @@ gnome*
 *.xml
 moni*
 user*
+rofi/passwords.txt

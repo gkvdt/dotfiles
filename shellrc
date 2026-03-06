@@ -1,2 +1,2 @@
-source ~/config/aliasrc
-source ~/config/startuprc
+source ~/dotfiles/aliasrc
+source ~/dotfiles/startuprc
